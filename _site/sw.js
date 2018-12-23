@@ -1,7 +1,8 @@
-self.importScripts('data/games.js');
+const cacheName = 'sw-1545587098';
+const dataCacheName = 'sw-1545587098';
+const RUNTIME = 'runtime';
 
 // Files to cache
-var cacheName = 'js13kPWA-v1';
 var appShellFiles = [
   '/pwa-examples/js13kpwa/',
   '/pwa-examples/js13kpwa/index.html',
