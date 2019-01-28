@@ -6840,7 +6840,7 @@ textarea.form-control {
   background: #ffffff none repeat scroll 0 0;
   bottom: 0;
   left: 0;
-  opacity: 0.8;
+  opacity: 0.5;
   position: absolute;
   right: 0;
   top: 0; }
@@ -7145,16 +7145,16 @@ nav.navbar {
     background-size: cover; }
 
 .slider-one {
-  background-image: url("../img/slider/1.jpg") !important; }
+  background-image: url("../img/cars.jpg") !important; }
 
 .slider-two {
-  background-image: url("../img/slider/2.jpg") !important; }
+  background-image: url("../img/cars.jpg") !important; }
 
 .slider-three {
-  background-image: url("../img/slider/3.jpg") !important; }
+  background-image: url("../img/cars.jpg") !important; }
 
 .slider-four {
-  background-image: url("../img/slider/4.jpg") !important; }
+  background-image: url("../img/cars.jpg") !important; }
 
 .slider-form {
   left: 15%;
@@ -7308,6 +7308,17 @@ nav.navbar {
 .card-list .card-body .card-title {
   font-size: 14px !important;
   font-weight: 500; }
+  .card-list .card-body .card-title i {
+    background: #FE0002 none repeat scroll 0 0;
+    border-radius: 50px;
+    box-shadow: 0 5px 7px #efd2cb;
+    color: #f8f9fa;
+    display: inline-block;
+    height: 20px;
+    line-height: 18px;
+    margin: 0 4px 0 0;
+    text-align: center;
+    width: 20px; }
 .card-list .card-body .card-subtitle {
   font-size: 13px !important;
   font-weight: 500 !important;
