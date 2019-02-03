@@ -52,8 +52,10 @@
 <link href="vendor/select2/css/select2-bootstrap.css" />
 <link href="vendor/select2/css/select2.min.css" rel="stylesheet" />
 
+<link href="vendor/jquery-ui-bootstrap/css/jquery-ui-1.10.0.css" rel="stylesheet" />
+
 <!-- Custom styles -->
-<link href="assets/css/osahan.css" rel="stylesheet">
+<link href="assets/css/custom.css" rel="stylesheet">
 
     
   </head>
@@ -125,34 +127,34 @@
                 aria-haspopup="true" aria-expanded="false">
                 Cars
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
+              <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
                 <a class="dropdown-item" href="properties-grid.html">Properties Grid</a>
                 <a class="dropdown-item" href="properties-list.html">Properties List</a>
                 <a class="dropdown-item" href="property-single-slider.html">Property Single Slider</a>
                 <a class="dropdown-item" href="property-single-gallery.html">Property Single Gallery</a>
-              </div>
+              </div> -->
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 Deals
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
+              <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
                 <a class="dropdown-item" href="agency-list.html">Agency List</a>
                 <a class="dropdown-item" href="agency-profile.html">Agency Profile</a>
                 <a class="dropdown-item" href="agents.html">Agents</a>
                 <a class="dropdown-item" href="agent-profile.html">Agent Profile</a>
-              </div>
+              </div> -->
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 About
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
+              <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
                 <a class="dropdown-item" href="blog.html">Blog</a>
                 <a class="dropdown-item" href="blog-single.html">Blog Single</a>
-              </div>
+              </div> -->
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown"
@@ -182,20 +184,21 @@
 <!--  -->
 
 <!-- Main Slider With Form -->
-<section class="osahan-slider slider-h-auto">
+<section class="home-slider osahan-slider slider-h-auto">
   <div id="osahanslider" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#osahanslider" data-slide-to="0" class="active"></li>
       <li data-target="#osahanslider" data-slide-to="1"></li>
     </ol>
     <div class="carousel-inner" role="listbox">
+
       <div class="carousel-item active slider-one">
         <div class="overlay"></div>
         <div class="section-padding">
           <div class="container banner-list pl-5 pr-5">
             <div class="row">
               <div class="col-lg-7 col-md-7">
-                <h1 class="mt-5 mb-4 text-secondary">Rentals 	• Sales • Leases</h1>
+                <h1 class="mt-5 mb-4 text-secondary">Car 	• Sales • Rentals</h1>
                 <h6 class="mb-5 text-gray-800"> Find your dream car and get started<br> 
                   with the most wanted models and best deals ever seen on island</h6>
                 <button class="btn btn-secondary btn-lg" type="button">Rent Now</button>
@@ -203,13 +206,13 @@
               </div>
               <div class="col-lg-5 col-md-5">
                 <div class="card card-list mb-0 box-shadow-none">
-                  <a href="#">
+                  <a href="/car-rental">
                     <span class="badge badge-primary">For Rent</span>
-                    <img class="card-img-top" src="assets/img/cars/nissan/teana.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="assets/img/cars/nissan/fuga.jpg" alt="Card image cap">
                     <div class="card-body">
                       <h5 class="card-title">
                         <i class="mdi mdi-car"></i>
-                        Nissan Teana 2013
+                        Nissan Fuga Hybrid 2015
                       </h5>
                       <!-- <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i> 127 Kent
                         Sreet, Sydny, NEW 2000</h6> -->
@@ -224,30 +227,32 @@
           </div>
         </div>
       </div>
-      <div class="carousel-item slider-two">
+      <div class="carousel-item slider-one">
         <div class="overlay"></div>
         <div class="section-padding">
           <div class="container banner-list pl-5 pr-5">
             <div class="row">
-              <div class="col-lg-8 col-md-8">
-                <h1 class="mt-5 mb-4">Find Your Favorite Property</h1>
-                <h6 class="mb-5">Vivamus luctus egestas convallis. Vestibulum arcu sapien,<br> consequat a urna a,
-                  gravida molestie est. Mauris iaculis felis id elit laoreet,<br> vitae blandit odio lacinia. Etiam
-                  viverra arcu lobortis semper posuere. Curabitur mattis a erat at ultricies. Duis ac porta est</h6>
-                <button class="btn btn-secondary btn-lg" type="button">Contact Us</button>
-                <button class="btn btn-outline-secondary btn-lg" type="button">Read More</button>
+              <div class="col-lg-7 col-md-7">
+                <h1 class="mt-5 mb-4 text-secondary">Car 	• Sales • Rentals</h1>
+                <h6 class="mb-5 text-gray-800"> Find your dream car and get started<br> 
+                  with the most wanted models and best deals ever seen on island</h6>
+                <button class="btn btn-secondary btn-lg" type="button">Rent Now</button>
+                <button class="btn btn-outline-primary btn-lg" type="button">See the collection</button>
               </div>
-              <div class="col-lg-4 col-md-4">
+              <div class="col-lg-5 col-md-5">
                 <div class="card card-list mb-0 box-shadow-none">
-                  <a href="#">
-                    <span class="badge badge-danger">For Rent</span>
-                    <img class="card-img-top" src="assets/img/list/4.png" alt="Card image cap">
+                  <a href="/car-rental">
+                    <span class="badge badge-primary">For Rent</span>
+                    <img class="card-img-top" src="assets/img/cars/nissan/teana.jpg" alt="Card image cap">
                     <div class="card-body">
-                      <h5 class="card-title">Family House in Hudson</h5>
-                      <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i> Hoboken, NJ,
-                        USA</h6>
+                      <h5 class="card-title">
+                        <i class="mdi mdi-car"></i>
+                        Nissan Teana 2013
+                      </h5>
+                      <!-- <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i> 127 Kent
+                        Sreet, Sydny, NEW 2000</h6> -->
                       <h2 class="text-primary mb-0 mt-3">
-                        $127,000 <small>/month</small>
+                        $100 <small>/day</small>
                       </h2>
                     </div>
                   </a>
@@ -285,11 +290,37 @@
     <div class="row">
       <div class="col-lg-4 col-md-4">
         <div class="card card-list">
-          <a href="#">
+          <a href="/car-rental">
             <div class="card-img">
               <div class="love-badge text-danger"><i class="mdi mdi-heart"></i></div>
               <div class="badge images-badge"><i class="mdi mdi-image-filter"></i> 12</div>
               <span class="badge badge-primary">For Sale</span>
+              <img class="card-img-top" src="assets/img/cars/nissan/fuga.jpg" alt="Card image cap">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">
+                <i class="mdi mdi-car"></i>
+                Nissan Fuga Hybrid 2015
+              </h5>
+              <h2 class="text-primary mb-0 mt-3">
+                $110 <small>/day</small>
+              </h2>
+            </div>
+            <!-- <div class="card-footer">
+                  <span><i class="mdi mdi-sofa"></i> Beds : <strong>3</strong></span>
+                  <span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>2</strong></span>
+                  <span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>587 sq ft</strong></span>
+                </div> -->
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4">
+        <div class="card card-list">
+          <a href="/car-rental">
+            <div class="card-img">
+              <div class="love-badge text-danger"><i class="mdi mdi-heart"></i></div>
+              <div class="badge images-badge"><i class="mdi mdi-image-filter"></i> 12</div>
+              <span class="badge badge-secondary">For Rent</span>
               <img class="card-img-top" src="assets/img/cars/nissan/teana.jpg" alt="Card image cap">
             </div>
             <div class="card-body">
@@ -302,135 +333,119 @@
               </h2>
             </div>
             <!-- <div class="card-footer">
-              <span><i class="mdi mdi-sofa"></i> Beds : <strong>3</strong></span>
-              <span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>2</strong></span>
-              <span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>587 sq ft</strong></span>
-            </div> -->
+                <span><i class="mdi mdi-sofa"></i> Beds : <strong>3</strong></span>
+                <span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>2</strong></span>
+                <span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>587 sq ft</strong></span>
+              </div> -->
           </a>
         </div>
       </div>
       <div class="col-lg-4 col-md-4">
         <div class="card card-list">
-          <a href="#">
+          <a href="/car-rental">
             <div class="card-img">
               <div class="love-badge text-danger"><i class="mdi mdi-heart"></i></div>
-              <div class="badge images-badge"><i class="mdi mdi-image-filter"></i> 60</div>
-              <span class="badge badge-secondary">For Rent</span>
-              <img class="card-img-top" src="assets/img/list/2.png" alt="Card image cap">
+              <div class="badge images-badge"><i class="mdi mdi-image-filter"></i> 12</div>
+              <span class="badge badge-primary">For Sale</span>
+              <img class="card-img-top" src="assets/img/cars/nissan/fuga.jpg" alt="Card image cap">
             </div>
             <div class="card-body">
-              <h2 class="text-primary mb-2 mt-0">
-                $127,000 <small>/month</small>
+              <h5 class="card-title">
+                <i class="mdi mdi-car"></i>
+                Nissan Fuga Hybrid 2015
+              </h5>
+              <h2 class="text-primary mb-0 mt-3">
+                $110 <small>/day</small>
               </h2>
-              <h5 class="card-title mb-2">Family House in Hudson</h5>
-              <h6 class="card-subtitle mt-1 mb-0 text-muted"><i class="mdi mdi-home-map-marker"></i> Hoboken, NJ, USA</h6>
             </div>
-            <div class="card-footer">
-              <span><i class="mdi mdi-sofa"></i> Beds : <strong>5</strong></span>
-              <span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>3</strong></span>
-              <span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>300 sq ft</strong></span>
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4">
-        <div class="card card-list">
-          <a href="#">
-            <div class="card-img">
-              <div class="love-badge text-danger"><i class="mdi mdi-heart-outline"></i></div>
-              <div class="badge images-badge"><i class="mdi mdi-image-filter"></i> 03</div>
-              <span class="badge badge-success">For Sale</span>
-              <img class="card-img-top" src="assets/img/list/3.png" alt="Card image cap">
-            </div>
-            <div class="card-body">
-              <h2 class="text-primary mb-2 mt-0">
-                $55,000 <small>/month</small>
-              </h2>
-              <h5 class="card-title mb-2">Loft Above The City</h5>
-              <h6 class="card-subtitle mt-1 mb-0 text-muted"><i class="mdi mdi-home-map-marker"></i> Hope Street
-                (Stop P), London SW11, UK</h6>
-            </div>
-            <div class="card-footer">
-              <span><i class="mdi mdi-sofa"></i> Beds : <strong>2</strong></span>
-              <span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>1</strong></span>
-              <span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>100 sq ft</strong></span>
-            </div>
+            <!-- <div class="card-footer">
+                <span><i class="mdi mdi-sofa"></i> Beds : <strong>3</strong></span>
+                <span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>2</strong></span>
+                <span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>587 sq ft</strong></span>
+              </div> -->
           </a>
         </div>
       </div>
     </div>
+
     <div class="row">
       <div class="col-lg-4 col-md-4">
         <div class="card card-list">
-          <a href="#">
-            <div class="card-img">
-              <div class="love-badge text-danger"><i class="mdi mdi-heart-outline"></i></div>
-              <div class="badge images-badge"><i class="mdi mdi-image-filter"></i> 18</div>
-              <span class="badge badge-danger">For Sale</span>
-              <img class="card-img-top" src="assets/img/list/4.png" alt="Card image cap">
-            </div>
-            <div class="card-body">
-              <h2 class="text-primary mb-2 mt-0">
-                $25,000 <small>/month</small>
-              </h2>
-              <h5 class="card-title mb-2">Store Space Greenville</h5>
-              <h6 class="card-subtitle mt-1 mb-0 text-muted"><i class="mdi mdi-home-map-marker"></i> 250-260 3rd St,
-                Hoboken, NJ 07030, USA</h6>
-            </div>
-            <div class="card-footer">
-              <span><i class="mdi mdi-sofa"></i> Beds : <strong>6</strong></span>
-              <span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>4</strong></span>
-              <span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>987 sq ft</strong></span>
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4">
-        <div class="card card-list">
-          <a href="#">
+          <a href="/car-rental">
             <div class="card-img">
               <div class="love-badge text-danger"><i class="mdi mdi-heart"></i></div>
-              <div class="badge images-badge"><i class="mdi mdi-image-filter"></i> 04</div>
-              <span class="badge badge-warning">For Rent</span>
-              <img class="card-img-top" src="assets/img/list/5.png" alt="Card image cap">
+              <div class="badge images-badge"><i class="mdi mdi-image-filter"></i> 12</div>
+              <span class="badge badge-primary">For Sale</span>
+              <img class="card-img-top" src="assets/img/cars/nissan/fuga.jpg" alt="Card image cap">
             </div>
             <div class="card-body">
-              <h2 class="text-primary mb-2 mt-0">
-                $12,000 <small>/month</small>
+              <h5 class="card-title">
+                <i class="mdi mdi-car"></i>
+                Nissan Fuga Hybrid 2015
+              </h5>
+              <h2 class="text-primary mb-0 mt-3">
+                $110 <small>/day</small>
               </h2>
-              <h5 class="card-title mb-2">Villa in Melbourne</h5>
-              <h6 class="card-subtitle mt-1 mb-0 text-muted"><i class="mdi mdi-home-map-marker"></i> NJ 07305, USA</h6>
             </div>
-            <div class="card-footer">
-              <span><i class="mdi mdi-sofa"></i> Beds : <strong>8</strong></span>
-              <span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>4</strong></span>
-              <span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>120 sq ft</strong></span>
-            </div>
+            <!-- <div class="card-footer">
+                  <span><i class="mdi mdi-sofa"></i> Beds : <strong>3</strong></span>
+                  <span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>2</strong></span>
+                  <span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>587 sq ft</strong></span>
+                </div> -->
           </a>
         </div>
       </div>
+
       <div class="col-lg-4 col-md-4">
         <div class="card card-list">
-          <a href="#">
+          <a href="/car-rental">
             <div class="card-img">
-              <div class="love-badge text-danger"><i class="mdi mdi-heart-outline"></i></div>
-              <div class="badge images-badge"><i class="mdi mdi-image-filter"></i> 45</div>
-              <span class="badge badge-info">For Rent</span>
-              <img class="card-img-top" src="assets/img/list/6.png" alt="Card image cap">
+              <div class="love-badge text-danger"><i class="mdi mdi-heart"></i></div>
+              <div class="badge images-badge"><i class="mdi mdi-image-filter"></i> 12</div>
+              <span class="badge badge-secondary">For Rent</span>
+              <img class="card-img-top" src="assets/img/cars/nissan/teana.jpg" alt="Card image cap">
             </div>
             <div class="card-body">
-              <h2 class="text-primary mb-2 mt-0">
-                $356, 000 <small>/month</small>
+              <h5 class="card-title">
+                <i class="mdi mdi-car"></i>
+                Nissan Teana 2013
+              </h5>
+              <h2 class="text-primary mb-0 mt-3">
+                $110 <small>/day</small>
               </h2>
-              <h5 class="card-title mb-2">Villa on Hollywood Boulev</h5>
-              <h6 class="card-subtitle mt-1 mb-0 text-muted"><i class="mdi mdi-home-map-marker"></i> The Village,
-                Jersey City, NJ 07302, USA</h6>
             </div>
-            <div class="card-footer">
-              <span><i class="mdi mdi-sofa"></i> Beds : <strong>1</strong></span>
-              <span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>3</strong></span>
-              <span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>187 sq ft</strong></span>
+            <!-- <div class="card-footer">
+                  <span><i class="mdi mdi-sofa"></i> Beds : <strong>3</strong></span>
+                  <span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>2</strong></span>
+                  <span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>587 sq ft</strong></span>
+                </div> -->
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-4">
+        <div class="card card-list">
+          <a href="/car-rental">
+            <div class="card-img">
+              <div class="love-badge text-danger"><i class="mdi mdi-heart"></i></div>
+              <div class="badge images-badge"><i class="mdi mdi-image-filter"></i> 12</div>
+              <span class="badge badge-secondary">For Rent</span>
+              <img class="card-img-top" src="assets/img/cars/nissan/fuga.jpg" alt="Card image cap">
             </div>
+            <div class="card-body">
+              <h5 class="card-title">
+                <i class="mdi mdi-car"></i>
+                Nissan Fuga Hybrid 2015
+              </h5>
+              <h2 class="text-primary mb-0 mt-3">
+                $110 <small>/day</small>
+              </h2>
+            </div>
+            <!-- <div class="card-footer">
+                    <span><i class="mdi mdi-sofa"></i> Beds : <strong>3</strong></span>
+                    <span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>2</strong></span>
+                    <span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>587 sq ft</strong></span>
+                  </div> -->
           </a>
         </div>
       </div>
@@ -454,21 +469,22 @@
       <div class="col-lg-8 col-md-8">
         <div class="card bg-dark text-white card-overlay">
           <a href="#">
-            <img class="card-img" src="assets/img/overlay/1.png" alt="Card image">
+            <img class="card-img" src="assets/img/us/4.jpg" alt="Card image">
             <div class="card-img-overlay">
-              <h3 class="card-title text-white">New York</h3>
-              <p class="card-text text-white">16 Properties</p>
+              <h3 class="card-title text-white">The Story</h3>
+              <p class="card-text text-white">28 Pictures</p>
             </div>
           </a>
+
         </div>
       </div>
       <div class="col-lg-4 col-md-4">
         <div class="card bg-dark text-white card-overlay">
           <a href="#">
-            <img class="card-img" src="assets/img/overlay/2.png" alt="Card image">
+            <img class="card-img" src="assets/img/us/2.jpg" alt="Card image">
             <div class="card-img-overlay">
-              <h3 class="card-title text-white">Los Angeles</h3>
-              <p class="card-text text-white">265 Properties</p>
+              <h3 class="card-title text-white">The Brand</h3>
+              <p class="card-text text-white">8 Pictures</p>
             </div>
           </a>
         </div>
@@ -478,22 +494,23 @@
       <div class="col-lg-4 col-md-4">
         <div class="card bg-dark text-white card-overlay">
           <a href="#">
-            <img class="card-img" src="assets/img/overlay/3.png" alt="Card image">
+            <img class="card-img" src="assets/img/us/1.jpg" alt="Card image">
             <div class="card-img-overlay">
-              <h3 class="card-title text-white">Chicago</h3>
-              <p class="card-text text-white">620 Properties</p>
+              <h3 class="card-title text-white">The Team</h3>
+              <p class="card-text text-white">16 Pictures</p>
             </div>
           </a>
-          .
+
+
         </div>
       </div>
       <div class="col-lg-8 col-md-8">
         <div class="card bg-dark text-white card-overlay">
           <a href="#">
-            <img class="card-img" src="assets/img/overlay/4.png" alt="Card image">
+            <img class="card-img" src="assets/img/us/3.jpg" alt="Card image">
             <div class="card-img-overlay">
-              <h3 class="card-title text-white">Philadelphia</h3>
-              <p class="card-text text-white">28 Properties</p>
+              <h3 class="card-title text-white">Inventory</h3>
+              <p class="card-text text-white">6 Pictures</p>
             </div>
           </a>
         </div>
@@ -513,7 +530,8 @@
       <div class="col-lg-4 col-md-4">
         <div class="agents-card text-center">
           <img class="img-fluid mb-4" src="assets/img/user/1.jpg" alt="">
-          <p class="mb-4 text-light">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+          <p class="mb-4 text-light">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+            Ipsum has
             been.</p>
           <h6 class="mb-0 text-primary">- Stave Martin
             <span class="star-rating">
@@ -530,7 +548,8 @@
       <div class="col-lg-4 col-md-4">
         <div class="agents-card text-center">
           <img class="img-fluid mb-4" src="assets/img/user/2.jpg" alt="">
-          <p class="mb-4 text-light">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+          <p class="mb-4 text-light">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+            Ipsum has
             been.</p>
           <h6 class="mb-0 text-primary">- Mark Smith
             <span class="star-rating">
@@ -547,7 +566,8 @@
       <div class="col-lg-4 col-md-4">
         <div class="agents-card text-center">
           <img class="img-fluid mb-4" src="assets/img/user/3.jpg" alt="">
-          <p class="mb-4 text-light">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+          <p class="mb-4 text-light">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+            Ipsum has
             been.</p>
           <h6 class="mb-0 text-primary">- Ryan Printz
             <span class="star-rating">
@@ -566,7 +586,7 @@
 </section>
 <!-- End Trusted Agents -->
 <!-- Blog -->
-<section class="section-padding border-top">
+<!-- <section class="section-padding border-top">
   <div class="section-title text-center mb-5">
     <h2>Blogs We Wrote For You</h2>
     <p class="text-gray-200">Lorem ipsum dolor sit amet.</p>
@@ -626,22 +646,24 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- End Blog -->
-<!-- Join Team -->
-<section class="section-padding bg-white text-center">
-  <h2 class="mt-0 text-dark">Join our professional team & agents<br>to start selling your house</h2>
-  <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-  <button type="button" class="btn btn-primary">Contact Us</button> <button type="button" class="btn btn-outline-primary">Read
-    More</button>
-</section>
-<!-- End Join Team -->
+
     </div>
 
     <div class="page__footer">
       <footer>
         
-        <!-- Footer -->
+        <!-- Join Team -->
+<section class="section-padding bg-white text-center">
+  <h2 class="mt-0 text-dark">High quality, affordable and luxary - These are what Yamagin stand for</h2>
+  <p class="mb-4">Enquire about more of our services or give us feedback on how we can serve you.</p>
+  <button type="button" class="btn btn-primary">Contact Us</button> <button type="button" class="btn btn-outline-primary">Read
+    More</button>
+</section>
+<!-- End Join Team -->
+
+<!-- Footer -->
 <section class="section-padding footer bg-white border-top">
   <div class="container">
     <div class="row">
@@ -650,35 +672,35 @@
         <p>Bay St., Villa, P.O, Box W829, St. John's Antigua & Barbuda W.I</p>
         <p class="mb-0"><a class="text-dark" href="#"> 1(268) 562-7824 </a></p>
         <p class="mb-0"><a class="text-success" href="#"> inqueries@yamaginanu.com </a></p>
-        <p class="mb-0"><a class="text-primary" href="#">www.askbootstrap.com</a></p>
+        <!-- <p class="mb-0"><a class="text-primary" href="#">www.askbootstrap.com</a></p> -->
       </div>
       <div class="col-lg-2 col-md-2">
-        <h6 class="mb-4">OUR PROPERTIES</h6>
+        <h6 class="mb-4">OUR FLEET</h6>
         <ul>
-          <li><a href="#">Single Story</a></li>
-          <li><a href="#">Dubble Story</a></li>
-          <li><a href="#">Tripple Story</a></li>
-          <li><a href="#">Resort</a></li>
-          <li><a href="#">Home in Merrick Way</a></li>
+          <li><a href="#">Nissan</a></li>
+          <li><a href="#">Honda</a></li>
+          <li><a href="#">Toyota</a></li>
+          <li><a href="#">All</a></li>
+
           <ul>
       </div>
       <div class="col-lg-2 col-md-2">
         <h6 class="mb-4">QUICK LINKS</h6>
         <ul>
-          <li><a href="#">Home in Coral Gables</a></li>
-          <li><a href="#">Villa on Grand Avenue</a></li>
+          <li><a href="#">Most popular</a></li>
+          <li><a href="#">Most luxurious  </a></li>
           <li><a href="#">Home in Merrick Way</a></li>
           <li><a href="#">Land / Plots</a></li>
           <li><a href="#">Restaurent</a></li>
           <ul>
       </div>
       <div class="col-lg-2 col-md-2">
-        <h6 class="mb-4">ABOUT OP</h6>
+        <h6 class="mb-4">ABOUT US</h6>
         <ul>
-          <li><a href="#">Company Information</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">Store Location</a></li>
-          <li><a href="#">Affillate Program</a></li>
+          <li><a href="#">The story</a></li>
+          <li><a href="#">The team</a></li>
+          <li><a href="#">Our partners</a></li>
+          <li><a href="#">Contact Us</a></li>
           <li><a href="#">Copyright</a></li>
           <ul>
       </div>
@@ -709,28 +731,29 @@
 <!-- End Footer -->
 <!-- Copyright -->
 <section class="pt-4 pb-4 text-center">
-  <p class="mt-0 mb-0 text-gray-500">© Copyright 2018 <strong >Yamagin</strong>. All Rights Reserved</p>
+  <p class="mt-0 mb-0 text-gray-500">© Copyright 2018 <strong>Yamagin</strong>. All Rights Reserved</p>
   <small class="mt-0 mb-0">
     Made with <i class="mdi mdi-heart text-danger"></i> by
     <a class="text-primary" target="_blank" href="https://cyberhawksolutions.com/">Ecanic @ CyberHawk Inc.</a>
   </small>
 </section>
 <!-- End Copyright -->
-
       </footer>
     </div>
 
       <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="vendor/jquery-ui-bootstrap/js/jquery-ui-1.9.2.custom.min.JS"></script>
+
   <!-- Contact form JavaScript -->
   <!-- Do not edit these files! In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
-  <script src="js/jqBootstrapValidation.js"></script>
-  <script src="js/contact_me.js"></script>
+  <script src="assets/js/jqBootstrapValidation.js"></script>
+  <script src="assets/js/contact_me.js"></script>
   <!-- select2 Js -->
   <script src="vendor/select2/js/select2.min.js"></script>
   <!-- Custom -->
-  <script src="js/custom.js"></script>
+  <script src="assets/js/custom.js"></script>
 
   </body>
 </html>

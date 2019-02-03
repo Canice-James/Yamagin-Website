@@ -4,20 +4,21 @@
     {% endfor %} -->
 
 <!-- Main Slider With Form -->
-<section class="osahan-slider slider-h-auto">
+<section class="home-slider osahan-slider slider-h-auto">
   <div id="osahanslider" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#osahanslider" data-slide-to="0" class="active"></li>
       <li data-target="#osahanslider" data-slide-to="1"></li>
     </ol>
     <div class="carousel-inner" role="listbox">
+
       <div class="carousel-item active slider-one">
         <div class="overlay"></div>
         <div class="section-padding">
           <div class="container banner-list pl-5 pr-5">
             <div class="row">
               <div class="col-lg-7 col-md-7">
-                <h1 class="mt-5 mb-4 text-secondary">Rentals 	• Sales • Leases</h1>
+                <h1 class="mt-5 mb-4 text-secondary">Car 	• Sales • Rentals</h1>
                 <h6 class="mb-5 text-gray-800"> Find your dream car and get started<br> 
                   with the most wanted models and best deals ever seen on island</h6>
                 <button class="btn btn-secondary btn-lg" type="button">Rent Now</button>
@@ -25,13 +26,13 @@
               </div>
               <div class="col-lg-5 col-md-5">
                 <div class="card card-list mb-0 box-shadow-none">
-                  <a href="#">
+                  <a href="/car-rental">
                     <span class="badge badge-primary">For Rent</span>
-                    <img class="card-img-top" src="assets/img/cars/nissan/teana.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="assets/img/cars/nissan/fuga.jpg" alt="Card image cap">
                     <div class="card-body">
                       <h5 class="card-title">
                         <i class="mdi mdi-car"></i>
-                        Nissan Teana 2013
+                        Nissan Fuga Hybrid 2015
                       </h5>
                       <!-- <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i> 127 Kent
                         Sreet, Sydny, NEW 2000</h6> -->
@@ -46,30 +47,32 @@
           </div>
         </div>
       </div>
-      <div class="carousel-item slider-two">
+      <div class="carousel-item slider-one">
         <div class="overlay"></div>
         <div class="section-padding">
           <div class="container banner-list pl-5 pr-5">
             <div class="row">
-              <div class="col-lg-8 col-md-8">
-                <h1 class="mt-5 mb-4">Find Your Favorite Property</h1>
-                <h6 class="mb-5">Vivamus luctus egestas convallis. Vestibulum arcu sapien,<br> consequat a urna a,
-                  gravida molestie est. Mauris iaculis felis id elit laoreet,<br> vitae blandit odio lacinia. Etiam
-                  viverra arcu lobortis semper posuere. Curabitur mattis a erat at ultricies. Duis ac porta est</h6>
-                <button class="btn btn-secondary btn-lg" type="button">Contact Us</button>
-                <button class="btn btn-outline-secondary btn-lg" type="button">Read More</button>
+              <div class="col-lg-7 col-md-7">
+                <h1 class="mt-5 mb-4 text-secondary">Car 	• Sales • Rentals</h1>
+                <h6 class="mb-5 text-gray-800"> Find your dream car and get started<br> 
+                  with the most wanted models and best deals ever seen on island</h6>
+                <button class="btn btn-secondary btn-lg" type="button">Rent Now</button>
+                <button class="btn btn-outline-primary btn-lg" type="button">See the collection</button>
               </div>
-              <div class="col-lg-4 col-md-4">
+              <div class="col-lg-5 col-md-5">
                 <div class="card card-list mb-0 box-shadow-none">
-                  <a href="#">
-                    <span class="badge badge-danger">For Rent</span>
-                    <img class="card-img-top" src="assets/img/list/4.png" alt="Card image cap">
+                  <a href="/car-rental">
+                    <span class="badge badge-primary">For Rent</span>
+                    <img class="card-img-top" src="assets/img/cars/nissan/teana.jpg" alt="Card image cap">
                     <div class="card-body">
-                      <h5 class="card-title">Family House in Hudson</h5>
-                      <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i> Hoboken, NJ,
-                        USA</h6>
+                      <h5 class="card-title">
+                        <i class="mdi mdi-car"></i>
+                        Nissan Teana 2013
+                      </h5>
+                      <!-- <h6 class="card-subtitle mb-2 text-muted"><i class="mdi mdi-home-map-marker"></i> 127 Kent
+                        Sreet, Sydny, NEW 2000</h6> -->
                       <h2 class="text-primary mb-0 mt-3">
-                        $127,000 <small>/month</small>
+                        $100 <small>/day</small>
                       </h2>
                     </div>
                   </a>
@@ -93,9 +96,9 @@
 <!-- End Main Slider With Form -->
 
 {% else %}
-<div id="banner">
+<!-- <div id="banner">
   <div class="h-100 d-flex justify-content-center" data-bs-parallax-bg="true" style="background-image:url('{{ page.hero-img }}');background-position:center;background-size:cover;">
     <h1 class="align-self-center text-center text-light"> {{ page.title }} </h1>
   </div>
-</div>
+</div> -->
 {% endif %}
