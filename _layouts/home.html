@@ -3,29 +3,30 @@ layout: default
 ---
 
 <!-- Properties List -->
-<section class="section-padding">
+<section id="cars" class="section-padding">
   <div class="section-title text-center mb-5">
     <h2>Latest Vehicles</h2>
     <p class="text-gray-200">Our catalog of cars</p>
   </div>
   <div class="container">
     <div class="row">
+      {% for car in site.cars %}
       <div class="col-lg-4 col-md-4">
-        <div class="card card-list">
-          <a href="/car-rental">
+        <div class="card card-list cars">
+          <a href="/cars/{{car.model}}">
             <div class="card-img">
               <div class="love-badge text-danger"><i class="mdi mdi-heart"></i></div>
               <div class="badge images-badge"><i class="mdi mdi-image-filter"></i> 12</div>
-              <span class="badge badge-primary">For Sale</span>
-              <img class="card-img-top" src="assets/img/cars/nissan/fuga.jpg" alt="Card image cap">
+              <span class="badge badge-primary">For {{ car.retailOption }}</span>
+              <img class="card-img-top" src="assets/img/cars/{{car.imgUrl}}" alt="Card image cap">
             </div>
             <div class="card-body">
               <h5 class="card-title">
                 <i class="mdi mdi-car"></i>
-                Nissan Fuga Hybrid 2015
+                {{ car.name }}
               </h5>
               <h2 class="text-primary mb-0 mt-3">
-                $110 <small>/day</small>
+                {{car.amount}} <small>/{{car.period}}</small>
               </h2>
             </div>
             <!-- <div class="card-footer">
@@ -36,146 +37,7 @@ layout: default
           </a>
         </div>
       </div>
-      <div class="col-lg-4 col-md-4">
-        <div class="card card-list">
-          <a href="/car-rental">
-            <div class="card-img">
-              <div class="love-badge text-danger"><i class="mdi mdi-heart"></i></div>
-              <div class="badge images-badge"><i class="mdi mdi-image-filter"></i> 12</div>
-              <span class="badge badge-secondary">For Rent</span>
-              <img class="card-img-top" src="assets/img/cars/nissan/teana.jpg" alt="Card image cap">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">
-                <i class="mdi mdi-car"></i>
-                Nissan Teana 2013
-              </h5>
-              <h2 class="text-primary mb-0 mt-3">
-                $110 <small>/day</small>
-              </h2>
-            </div>
-            <!-- <div class="card-footer">
-                <span><i class="mdi mdi-sofa"></i> Beds : <strong>3</strong></span>
-                <span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>2</strong></span>
-                <span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>587 sq ft</strong></span>
-              </div> -->
-          </a>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4">
-        <div class="card card-list">
-          <a href="/car-rental">
-            <div class="card-img">
-              <div class="love-badge text-danger"><i class="mdi mdi-heart"></i></div>
-              <div class="badge images-badge"><i class="mdi mdi-image-filter"></i> 12</div>
-              <span class="badge badge-primary">For Sale</span>
-              <img class="card-img-top" src="assets/img/cars/nissan/fuga.jpg" alt="Card image cap">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">
-                <i class="mdi mdi-car"></i>
-                Nissan Fuga Hybrid 2015
-              </h5>
-              <h2 class="text-primary mb-0 mt-3">
-                $110 <small>/day</small>
-              </h2>
-            </div>
-            <!-- <div class="card-footer">
-                <span><i class="mdi mdi-sofa"></i> Beds : <strong>3</strong></span>
-                <span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>2</strong></span>
-                <span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>587 sq ft</strong></span>
-              </div> -->
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-4 col-md-4">
-        <div class="card card-list">
-          <a href="/car-rental">
-            <div class="card-img">
-              <div class="love-badge text-danger"><i class="mdi mdi-heart"></i></div>
-              <div class="badge images-badge"><i class="mdi mdi-image-filter"></i> 12</div>
-              <span class="badge badge-primary">For Sale</span>
-              <img class="card-img-top" src="assets/img/cars/nissan/fuga.jpg" alt="Card image cap">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">
-                <i class="mdi mdi-car"></i>
-                Nissan Fuga Hybrid 2015
-              </h5>
-              <h2 class="text-primary mb-0 mt-3">
-                $110 <small>/day</small>
-              </h2>
-            </div>
-            <!-- <div class="card-footer">
-                  <span><i class="mdi mdi-sofa"></i> Beds : <strong>3</strong></span>
-                  <span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>2</strong></span>
-                  <span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>587 sq ft</strong></span>
-                </div> -->
-          </a>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-4">
-        <div class="card card-list">
-          <a href="/car-rental">
-            <div class="card-img">
-              <div class="love-badge text-danger"><i class="mdi mdi-heart"></i></div>
-              <div class="badge images-badge"><i class="mdi mdi-image-filter"></i> 12</div>
-              <span class="badge badge-secondary">For Rent</span>
-              <img class="card-img-top" src="assets/img/cars/nissan/teana.jpg" alt="Card image cap">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">
-                <i class="mdi mdi-car"></i>
-                Nissan Teana 2013
-              </h5>
-              <h2 class="text-primary mb-0 mt-3">
-                $110 <small>/day</small>
-              </h2>
-            </div>
-            <!-- <div class="card-footer">
-                  <span><i class="mdi mdi-sofa"></i> Beds : <strong>3</strong></span>
-                  <span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>2</strong></span>
-                  <span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>587 sq ft</strong></span>
-                </div> -->
-          </a>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-4">
-        <div class="card card-list">
-          <a href="/car-rental">
-            <div class="card-img">
-              <div class="love-badge text-danger"><i class="mdi mdi-heart"></i></div>
-              <div class="badge images-badge"><i class="mdi mdi-image-filter"></i> 12</div>
-              <span class="badge badge-secondary">For Rent</span>
-              <img class="card-img-top" src="assets/img/cars/nissan/fuga.jpg" alt="Card image cap">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">
-                <i class="mdi mdi-car"></i>
-                Nissan Fuga Hybrid 2015
-              </h5>
-              <h2 class="text-primary mb-0 mt-3">
-                $110 <small>/day</small>
-              </h2>
-            </div>
-            <!-- <div class="card-footer">
-                    <span><i class="mdi mdi-sofa"></i> Beds : <strong>3</strong></span>
-                    <span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>2</strong></span>
-                    <span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>587 sq ft</strong></span>
-                  </div> -->
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="row mt-4">
-      <div class="col-md-12 text-center">
-        <button class="btn btn-primary font-weight-bold btn-lg" type="submit">VIEW ALL</button>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </section>

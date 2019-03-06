@@ -6,6 +6,14 @@
   height: 300px;
 }
 
+.cars .card-img-top {
+  object-fit: cover;
+  width: 100%;
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
+  height: 190px;
+}
+
 .ui-datepicker td .ui-state-hover {
   color: #ffffff;
   background: #FE0002 !important;
