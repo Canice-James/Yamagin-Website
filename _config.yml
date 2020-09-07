@@ -47,6 +47,7 @@ markdown: kramdown
 plugins:
   - jekyll-feed
 
+collections_dir: collections
 collections:
   cars:
     output: true

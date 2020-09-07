@@ -1,0 +1,159 @@
+---
+layout: default
+---
+
+
+
+<!-- Main Slider With Form -->
+<section class="osahan-slider">
+  <div id="osahanslider" class="carousel slide" data-ride="carousel">
+
+    <div class="carousel-inner" role="listbox">
+      <div class="carousel-item active slider-one">
+        <div class="overlay"></div>
+      </div>
+ 
+    </div>
+
+  </div>
+  <div class="slider-form inner-page-form">
+    <div class="container">
+      <h1 class="text-left mb-5 text-dark">Find Your Next Ride</h1>
+      <form>
+        <div class="row no-gutters">
+          <div class="col-md-9 col-md-8 col-sm-6 col-6">
+            <div class="input-group">
+               <div class="input-group-addon"><i class="mdi mdi-car"></i></div>
+               <input class="form-control quicksearch" placeholder="Enter brand or model" type="text">
+            </div>
+         </div>
+
+          <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+            <div class="input-group"><button
+                class="btn btn-secondary btn-block no-radius font-weight-bold search">SEARCH</button> </div>
+          </div>
+        </div>
+      </form>
+
+    </div>
+</section>
+<!-- End Main Slider With Form -->
+<!-- Properties List -->
+<section class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-4">
+        <div class="card sidebar-card">
+          <div class="card-body">
+            <h5 class="card-title mb-3">Cars by Make (Brand)</h5>
+            <ul class="sidebar-card-list filters">
+
+            {% assign brands = site.cars | group_by:"brand" %}
+              <li class="button-group" data-filter-group="brand"><a href="#"  data-filter="*"><i class="mdi mdi-chevron-right"></i> All <span class="sidebar-badge">{{site.cars | size}}</span></a></li>
+              {% for brand in brands %}
+              <li class="button-group" data-filter-group="brand"><a href="#"  data-filter="{{ brand.name }}"><i class="mdi mdi-chevron-right"></i> {{ brand.name }} <span class="sidebar-badge">{{brand.items | size}}</span></a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <div class="card sidebar-card">
+          <div class="card-body">
+            <h5 class="card-title mb-4">Featured Cars</h5>
+            <div id="featured-properties" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#featured-properties" data-slide-to="0" class="active"></li>
+                <li data-target="#featured-properties" data-slide-to="1"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="card card-list">
+                    <a href="#">
+                      <img class="card-img-top" src="{{ '/assets/img/cars/' | relative_url }}{{site.cars[0].imgUrl}}" alt="Card image cap">
+                        <div class="card-body">
+                        <h5 class="card-title">
+                          <i class="mdi mdi-car"></i>
+                          {{ site.cars[0].name }}
+                        </h5>
+                        <h2 class="text-primary mb-0 mt-3">
+                          {{ site.cars[0].amount }} <small>/{{site.cars[0].period}}</small>
+                        </h2>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="card card-list">
+                    <a href="#">
+                      <img class="card-img-top" src="{{ '/assets/img/cars/' | relative_url }}{{site.cars[1].imgUrl}}" alt="Card image cap">
+                        <div class="card-body">
+                        <h5 class="card-title">
+                          <i class="mdi mdi-car"></i>
+                          {{ site.cars[1].name }}
+                        </h5>
+                        <h2 class="text-primary mb-0 mt-3">
+                          {{ site.cars[1].amount }} <small>/{{site.cars[1].period}}</small>
+                        </h2>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-8">
+        <div class="grid side-cars">
+          {% for car in site.cars %}
+          {% assign img = "assets/img/cars/" | append: car.imgUrl %}
+          <div class="">
+            <div class="card card-list cars mx-2" style="">
+              <a href="/cars/{{car.model}}">
+                <div class="card-img">
+                  <div class="love-badge text-danger"><i class="mdi mdi-heart"></i></div>
+                  <!-- <div class="badge images-badge"><i class="mdi mdi-image-filter"></i> 12</div> -->
+                  <span class="badge badge-primary">For {{ car.retailOption }}</span>
+                  <img class="card-img-top" src="{{ img | relative_url }}" alt="Card image cap">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <i class="mdi mdi-car"></i>
+                    {{ car.name }}
+                  </h5>
+                  <h2 class="text-primary mb-0 mt-3">
+                    {{car.amount}} <small>/{{car.period}}</small>
+                  </h2>
+                </div>
+                <!-- <div class="card-footer">
+                              <span><i class="mdi mdi-sofa"></i> Beds : <strong>3</strong></span>
+                              <span><i class="mdi mdi-scale-bathroom"></i> Baths : <strong>2</strong></span>
+                              <span><i class="mdi mdi-move-resize-variant"></i> Area : <strong>587 sq ft</strong></span>
+                            </div> -->
+              </a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {%- comment -%} <nav class="mt-5">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1"><i class="mdi mdi-chevron-left"></i></a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">...</a></li>
+            <li class="page-item"><a class="page-link" href="#">10</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#"><i class="mdi mdi-chevron-right"></i></a>
+            </li>
+          </ul>
+        </nav> {%- endcomment -%}
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Properties List -->
+<!-- Join Team -->
+
+<!-- Properties List -->

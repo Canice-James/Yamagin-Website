@@ -7,26 +7,28 @@
 
   <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
 
-    {% include browser-upgrade.html %}
-    
-    <div id="preloader">
-      <div id="preloader-logo"></div>
+    <div id="wrapper" data-scroll-container>
+
+      {% include browser-upgrade.html %}
+      
+      <div id="preloader">
+        <div id="preloader-logo"></div>
+      </div>
+
+    {% include masthead.html %}
+
+      <div class="initial-content">
+        {{ content }}
+      </div>
+
+      <div class="page__footer">
+        <footer>
+          {% include footer/custom.html %}
+          {% include footer.html %}
+        </footer>
+      </div>
     </div>
-
-   {% include masthead.html %}
-
-    <div class="initial-content">
-      {{ content }}
-    </div>
-
-    <div class="page__footer">
-      <footer>
-        {% include footer/custom.html %}
-        {% include footer.html %}
-      </footer>
-    </div>
-
-    {% include scripts.html %}
+      {% include scripts.html %}
 
   </body>
 </html>

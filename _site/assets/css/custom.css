@@ -19,3 +19,23 @@
   background: #FE0002 !important;
   background-color: #FE0002 !important; 
 }
+
+
+.side-cars .cars {
+  width: 223px;
+  height: 290px;
+  float: left;
+}
+
+#wrapper {
+  width: 100vw;
+  /* height: 100vh; */
+  /* overflow: hidden;  */
+  /* position: fixed !important;  */
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
