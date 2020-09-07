@@ -27,6 +27,20 @@ var locoScroll;
 $(document).ready(function() {
   
 
+  locoScroll = new LocomotiveScroll({
+
+    el: document.querySelector('#wrapper'),
+    smooth: true,
+    getSpeed: true,
+    getDirection: true,
+    useKeyboard: true
+  });
+
+  $('.search').click((e)=>{
+    e.preventDefault()
+    let target = document.querySelector('.section-padding');
+    locoScroll.scrollTo(target)
+  })
 
   filterInit();
 
