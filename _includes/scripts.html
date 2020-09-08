@@ -11,11 +11,11 @@
 <script src="{{'assets/js/contact_me.js' | relative_url}}"></script>
 <!-- select2 Js -->
 <script src="{{'vendor/select2/js/select2.min.js' | relative_url}}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
-<script src="{{'assets/js/locomotive-scroll.min.js'  | relative_url }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"
+  integrity="sha512-wK2NuxEyN/6s53M8G7c6cRUXvkeV8Uh5duYS06pAdLq4ukc72errSIyyGQGYtzWEzvVGzGSWg8l79e0VkTJYPw=="
+  crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@barba/core"></script>
 
 <!-- Custom -->
 <script src="{{'assets/js/custom.js' | relative_url}}"></script>
@@ -23,103 +23,233 @@
 
 
 <script>
-var locoScroll; 
-$(document).ready(function() {
-  
+  var locoScroll;
+  var tl;
+  var initScrollF;
+  window.scrollTo(0, 0);
 
-  locoScroll = new LocomotiveScroll({
 
-    el: document.querySelector('#wrapper'),
-    smooth: true,
-    getSpeed: true,
-    getDirection: true,
-    useKeyboard: true
-  });
+  $(document).ready(()=> {
+    initScrollF = initScroll;
+    barba.init({
 
-  $('.search').click((e)=>{
-    e.preventDefault()
-    let target = document.querySelector('.section-padding');
-    locoScroll.scrollTo(target)
-  })
+      transitions: [{
+        name: 'default-transition',
+        once(data) {
 
-  filterInit();
+          // init LocomotiveScroll on page load
+          initScroll(data.next.container);
+          
+          let barbaTl = gsap.timeline()
+          .to('#reveal', { opacity: 0, duration: 0.5 })
+          .to('#global-spinner', { opacity: 0, duration: 0.5 },"<0.3")
 
-  function filterInit() {
-    // external js: isotope.pkgd.js
+          return barbaTl;
+          
+        },
+        afterEnter(data) {
 
-    // store filter for each group
-    var buttonFilters = {};
-    var buttonFilter;
-    // quick search regex
-    var qsRegex;
 
-    // init Isotope
-    var $grid = $('.grid').isotope({
-      itemSelector: '.cars',
-      filter: function () {
-        var $this = $(this);
-        var searchResult = qsRegex ? $this.text().match(qsRegex) : true;
-        var buttonResult = buttonFilter ? $this.is(buttonFilter) : true;
-        return searchResult && buttonResult;
-      },
-    });
 
-    $('.filters').on('click', 'a', function (e) {
 
-      e.preventDefault()
-      var $this = $(this);
-      // get group key
-      var $buttonGroup = $this.parents('.button-group');
-      var filterGroup = $buttonGroup.attr('data-filter-group');
-      // set filter for group
-      buttonFilters[filterGroup] = $this.attr('data-filter');
-      // combine filters
-      buttonFilter = concatValues(buttonFilters);
-      // Isotope arrange
-      $grid.isotope();
-    });
+          // ScrollTrigger.kill()
+          // tl.to('.text-emphasis', {autoAlpha: 1, duration: 0,  onComplete: function () {
+          setTimeout(()=>{
+            initScroll(data.next.container)
+            
+            gsap.to('#reveal', { opacity: 0, duration: 0.5 })
+            gsap.to('#global-spinner', { opacity: 0, duration: 0.5 })
+          },300)
 
-    // use value of search field to filter
-    var $quicksearch = $('.quicksearch').keyup(debounce(function () {
-      qsRegex = new RegExp($quicksearch.val(), 'gi');
-      $grid.isotope();
-    }));
 
-    // change is-checked class on buttons
-    $('.button-group').each(function (i, buttonGroup) {
-      var $buttonGroup = $(buttonGroup);
-      $buttonGroup.on('click', 'button', function () {
-        $buttonGroup.find('.is-checked').removeClass('is-checked');
-        $(this).addClass('is-checked');
-      });
-    });
+        },
+        leave() {
+          // create your stunning leave animation here
 
-    // flatten object by concatting values
-    function concatValues(obj) {
-      var value = '';
-      for (var prop in obj) {
-        value += obj[prop];
-      }
-      return value;
-    }
 
-    // debounce so filtering doesn't happen every millisecond
-    function debounce(fn, threshold) {
-      var timeout;
-      threshold = threshold || 100;
-      return function debounced() {
-        clearTimeout(timeout);
-        var args = arguments;
-        var _this = this;
-        function delayed() {
-          fn.apply(_this, args);
+          let barbaTl = gsap.timeline()
+          .to('#reveal', { opacity: 1, duration: 0.5 })
+          .to('#global-spinner', { opacity: 1, duration: 0.5 }, "<0.3")
+
+          return barbaTl;
+
+          // .to('.text-emphasis', {autoAlpha: 1, duration: 0 })
+          // .to('#left-swipe', { top: '50vh', duration: 0 })
+          // .to('#right-swipe', { top: '50vh', duration: 0 })
+
+          return barbaTl;
+
+        },
+        beforeLeave(data) {
+          console.log("destroy loco")
+
+          tl.pause(0).kill(true);
+          ScrollTrigger.getById("home1").kill(true);
+          ScrollTrigger.getById("home2").kill(true);
+          ScrollTrigger.getById("footer1").kill(true);
+
+          gsap.set(".layout--home #wrapper", { clearProps: true });
+          gsap.set(".page--cars #wrapper", { clearProps: true });
+
+          ScrollTrigger.refresh()
+
         }
-        timeout = setTimeout(delayed, threshold);
-      };
+      }]
+    });
+
+
+    function initScroll(container = document) {
+      console.log("scrollllllll bitch")
+
+      tl = null;
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      tl = gsap.timeline()
+
+
+        .fromTo('.layout--home #wrapper',
+          { "background-color": "#666666" },
+          {
+            "background-color": "#ffffff",
+            scrollTrigger: {
+              id: "home1",
+              pin: false,
+              trigger: ".layout--home .page__footer",
+              start: "top 100%",
+              end: "top 30%",
+              scrub: true,
+              markers: { startColor: "green", endColor: "green", fontSize: "12px" }
+
+            },
+            ease: "none"
+          })
+
+        .fromTo('.layout--home #wrapper',
+          { "background-color": "#272727" },
+          {
+            "background-color": "#666666",
+            scrollTrigger: {
+              id: "home2",
+              pin: false,
+              trigger: ".layout--home .about",
+              start: "top 100%",
+              end: "top 0%",
+              scrub: true,
+              markers: { startColor: "red", endColor: "red", fontSize: "12px" }
+            },
+            ease: "none"
+          })
+
+        .fromTo('.page--cars #wrapper',
+          { "background-color": "#272727" },
+          {
+            "background-color": "#ffffff",
+            scrollTrigger: {
+              id: "footer1",
+              pin: false,
+              trigger: ".page--cars .page__footer",
+              start: "top 100%",
+              end: "top 30%",
+              scrub: true,
+              markers: { startColor: "green", endColor: "red", fontSize: "12px" }
+
+            },
+            ease: "none"
+          });
+
+
+      console.log("end")
     }
 
-  }
 
-});
+    filterInit();
+
+    function filterInit() {
+
+      
+      $('.search').click((e) => {
+        e.preventDefault()
+        let target = document.querySelector('.section-padding');
+        locoScroll.scrollTo(target)
+      })
+
+      // external js: isotope.pkgd.js
+
+      // store filter for each group
+      var buttonFilters = {};
+      var buttonFilter;
+      // quick search regex
+      var qsRegex;
+
+      // init Isotope
+      var $grid = $('.grid').isotope({
+        itemSelector: '.cars',
+        filter: function () {
+          var $this = $(this);
+          var searchResult = qsRegex ? $this.text().match(qsRegex) : true;
+          var buttonResult = buttonFilter ? $this.is(buttonFilter) : true;
+          return searchResult && buttonResult;
+        },
+      });
+
+      $('.filters').on('click', 'a', function (e) {
+
+        e.preventDefault()
+        var $this = $(this);
+        // get group key
+        var $buttonGroup = $this.parents('.button-group');
+        var filterGroup = $buttonGroup.attr('data-filter-group');
+        // set filter for group
+        buttonFilters[filterGroup] = $this.attr('data-filter');
+        // combine filters
+        buttonFilter = concatValues(buttonFilters);
+        // Isotope arrange
+        $grid.isotope();
+      });
+
+      // use value of search field to filter
+      var $quicksearch = $('.quicksearch').keyup(debounce(function () {
+        qsRegex = new RegExp($quicksearch.val(), 'gi');
+        $grid.isotope();
+      }));
+
+      // change is-checked class on buttons
+      $('.button-group').each(function (i, buttonGroup) {
+        var $buttonGroup = $(buttonGroup);
+        $buttonGroup.on('click', 'button', function () {
+          $buttonGroup.find('.is-checked').removeClass('is-checked');
+          $(this).addClass('is-checked');
+        });
+      });
+
+      // flatten object by concatting values
+      function concatValues(obj) {
+        var value = '';
+        for (var prop in obj) {
+          value += obj[prop];
+        }
+        return value;
+      }
+
+      // debounce so filtering doesn't happen every millisecond
+      function debounce(fn, threshold) {
+        var timeout;
+        threshold = threshold || 100;
+        return function debounced() {
+          clearTimeout(timeout);
+          var args = arguments;
+          var _this = this;
+          function delayed() {
+            fn.apply(_this, args);
+          }
+          timeout = setTimeout(delayed, threshold);
+        };
+      }
+
+    }
+
+
+  });
 
 </script>

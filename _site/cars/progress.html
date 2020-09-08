@@ -21,7 +21,7 @@
 
 
 
-  <meta property="article:published_time" content="2020-09-07T01:10:31-04:00">
+  <meta property="article:published_time" content="2020-09-08T16:09:41-04:00">
 
 
 
@@ -58,7 +58,6 @@
 
 <link href="/vendor/jquery-ui-bootstrap/css/jquery-ui-1.10.0.css" rel="stylesheet" />
 
-<link type="text/css" href="/assets/js/locomotive-scroll.min.css" rel="stylesheet"/>
 
 <!-- Custom styles -->
 <link href="/assets/css/custom.css" rel="stylesheet">
@@ -66,20 +65,223 @@
     
   </head>
 
-  <body class="layout--car">
+  <body data-barba="wrapper" class="">
 
-    <div id="wrapper" data-scroll-container>
 
       <!--[if lt IE 9]>
 <div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
 <![endif]-->
 
+
+      <style>
+  .spinner div:first-child:after,
+  .spinner div:first-child:before,
+  .spinner div:last-child:after,
+  .spinner div:last-child:before {
+    content: '';
+    position: absolute;
+    border-radius: 50%
+  }
+
+  /* BACKGROUND */
+  .spinner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1004;
+    background: transparent;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  /* BLACK */
+  .spinner div:last-child {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 165px;
+    height: 165px;
+    margin: -82.5px 0 0 -82.5px;
+    border-radius: 50%;
+    box-shadow: 0 3px 3px 0 transparent;
+    transform: translate3d(0, 0, 0);
+    animation: spin 3.5s linear infinite
+  }
+
+  /* RED */
+  .spinner div:first-child {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    box-shadow: 0 3px 3px 0 rgba(255, 56, 106, 1);
+    transform: translate3d(0, 0, 0);
+    animation: spin 2.5s linear infinite
+  }
+
+  /* YELLOW */
+  .spinner div:first-child:before {
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    box-shadow: 0 3px 3px 0 rgb(255, 228, 32);
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite
+  }
+
+  /* BLUE */
+  .spinner div:first-child:after {
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    box-shadow: 0 3px 3px 0 rgba(61, 175, 255, 1);
+    animation: spin 2 linear infinite
+  }
+
+  /* WHITE */
+  .spinner div:last-child:after {
+    top: 35px;
+    left: 35px;
+    right: 35px;
+    bottom: 35px;
+    box-shadow: 0 3px 3px 0 white;
+    animation: spin 1.5s linear infinite
+  }
+
+  /* ANIMATIONS */
+
+  .fadeOut {
+    animation: fadeOut 0.5s linear 0.25s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  @-webkit-keyframes spin {
+    0% {
+      transform: rotate(0)
+    }
+
+    100% {
+      transform: rotate(360deg)
+    }
+  }
+
+  @-moz-keyframes spin {
+    0% {
+      -moz-transform: rotate(0)
+    }
+
+    100% {
+      -moz-transform: rotate(360deg)
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0)
+    }
+
+    100% {
+      transform: rotate(360deg)
+    }
+  }
+</style>
+
+
+<style>
+  #reveal {
+    display: flex;
+    flex-direction: column;
+    background-color: #272727;
+    position: fixed;
+    z-index: 1003;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+  }
+
+  #reveal-swipe1, #reveal-swipe2 {
+    display: flex;
+    flex: 100%;
+    justify-content: center;
+    align-items: center;
+    text-overflow:clip;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  #reveal-swipe1 h1, #reveal-swipe2 h1 {
+    font-size: 25em;
+    color: #e10000;
+  }
+
+  @media (max-width: 767.98px){
+    #reveal-swipe1 h1, #reveal-swipe2 h1 {
+      font-size: 34vw;
+    }
+  }
+
+  #left-swipe, #right-swipe {
+    position: absolute;
+    height: 50vh;
+    width: 100vw;    
+    background-color: #272727;
+    pointer-events: none;
+  }
+
+  #left-swipe {
+    top: 0;
+    left: 0;
+  }
+
+  #right-swipe {
+    bottom: 0;
+    right: 0;
+  }
+
+</style>
+
+
+<div id="global-spinner" class="spinner">
+  <div class="blob blob-0"></div>
+  <div class="blob blob-1"></div>
+</div>
+
+<section id="reveal">
+
+</section>
+
       
       <div id="preloader">
         <div id="preloader-logo"></div>
       </div>
+      
+      <div data-barba="container" data-barba-namespace="progress">
 
-    <div id="masthead" class="container-fluid p-0">
+
+      <div class="page--progress layout--car">
+        <div id="wrapper"  data-scroll-container >
+        <div id="masthead" class="container-fluid p-0">
     <!-- Top Navbar -->
   <!-- <div class="navbar-top bg-primary">
     <div class="container">
@@ -131,7 +333,7 @@
               </a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link " href="#cars" >
+              <a class="nav-link " href="/cars.html" >
                 Cars
               </a>
               <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
@@ -196,8 +398,8 @@
 </div>
 
 
-      <div class="initial-content">
-        <section class="osahan-slider">
+          <div class="initial-content">
+            <section class="osahan-slider">
   <div id="osahanslider" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#osahanslider" data-slide-to="0" class="active"></li>
@@ -542,13 +744,13 @@
     </div>
   </div>
 </section>
-      </div>
+          </div>
 
-      <div class="page__footer">
-        <footer>
-          
-          <!-- Join Team -->
-<section class="section-padding bg-white text-center">
+          <div class="page__footer">
+            <footer>
+              
+              <!-- Join Team -->
+<section class="section-padding text-center"> <!--bg-white -->
   <h2 class="mt-0 text-dark">High quality, affordable and luxury - This is what Yamagin stand for</h2>
   <p class="mb-4">Enquire about more of our services or give us feedback on how we can serve you.</p>
   <button type="button" class="btn btn-primary">Contact Us</button> <button type="button" class="btn btn-outline-primary">Read
@@ -557,7 +759,7 @@
 <!-- End Join Team -->
 
 <!-- Footer -->
-<section class="section-padding footer bg-white border-top">
+<section class="section-padding footer border-top"> <!-- bg-white-->
   <div class="container">
     <div class="row">
       <div class="col-lg-3 col-md-3">
@@ -624,7 +826,7 @@
 </section>
 <!-- End Footer -->
 <!-- Copyright -->
-<section class="pt-4 pb-4 text-center">
+<section class="pt-4 pb-4 text-center bg-dark">
   <p class="mt-0 mb-0 text-gray-500">© Copyright 2018 <strong>Yamagin</strong>. All Rights Reserved</p>
   <small class="mt-0 mb-0">
     Made with <i class="mdi mdi-heart text-danger"></i> by
@@ -633,8 +835,13 @@
 </section>
 <!-- End Copyright -->
 
-        </footer>
+            </footer>
+          </div>        
+        </div>        
       </div>
+
+
+
     </div>
       <!-- Bootstrap core JavaScript -->
 
@@ -649,11 +856,11 @@
 <script src="/assets/js/contact_me.js"></script>
 <!-- select2 Js -->
 <script src="/vendor/select2/js/select2.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
-<script src="/assets/js/locomotive-scroll.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"
+  integrity="sha512-wK2NuxEyN/6s53M8G7c6cRUXvkeV8Uh5duYS06pAdLq4ukc72errSIyyGQGYtzWEzvVGzGSWg8l79e0VkTJYPw=="
+  crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@barba/core"></script>
 
 <!-- Custom -->
 <script src="/assets/js/custom.js"></script>
@@ -661,104 +868,234 @@
 
 
 <script>
-var locoScroll; 
-$(document).ready(function() {
-  
+  var locoScroll;
+  var tl;
+  var initScrollF;
+  window.scrollTo(0, 0);
 
-  locoScroll = new LocomotiveScroll({
 
-    el: document.querySelector('#wrapper'),
-    smooth: true,
-    getSpeed: true,
-    getDirection: true,
-    useKeyboard: true
-  });
+  $(document).ready(()=> {
+    initScrollF = initScroll;
+    barba.init({
 
-  $('.search').click((e)=>{
-    e.preventDefault()
-    let target = document.querySelector('.section-padding');
-    locoScroll.scrollTo(target)
-  })
+      transitions: [{
+        name: 'default-transition',
+        once(data) {
 
-  filterInit();
+          // init LocomotiveScroll on page load
+          initScroll(data.next.container);
+          
+          let barbaTl = gsap.timeline()
+          .to('#reveal', { opacity: 0, duration: 0.5 })
+          .to('#global-spinner', { opacity: 0, duration: 0.5 },"<0.3")
 
-  function filterInit() {
-    // external js: isotope.pkgd.js
+          return barbaTl;
+          
+        },
+        afterEnter(data) {
 
-    // store filter for each group
-    var buttonFilters = {};
-    var buttonFilter;
-    // quick search regex
-    var qsRegex;
 
-    // init Isotope
-    var $grid = $('.grid').isotope({
-      itemSelector: '.cars',
-      filter: function () {
-        var $this = $(this);
-        var searchResult = qsRegex ? $this.text().match(qsRegex) : true;
-        var buttonResult = buttonFilter ? $this.is(buttonFilter) : true;
-        return searchResult && buttonResult;
-      },
-    });
 
-    $('.filters').on('click', 'a', function (e) {
 
-      e.preventDefault()
-      var $this = $(this);
-      // get group key
-      var $buttonGroup = $this.parents('.button-group');
-      var filterGroup = $buttonGroup.attr('data-filter-group');
-      // set filter for group
-      buttonFilters[filterGroup] = $this.attr('data-filter');
-      // combine filters
-      buttonFilter = concatValues(buttonFilters);
-      // Isotope arrange
-      $grid.isotope();
-    });
+          // ScrollTrigger.kill()
+          // tl.to('.text-emphasis', {autoAlpha: 1, duration: 0,  onComplete: function () {
+          setTimeout(()=>{
+            initScroll(data.next.container)
+            
+            gsap.to('#reveal', { opacity: 0, duration: 0.5 })
+            gsap.to('#global-spinner', { opacity: 0, duration: 0.5 })
+          },300)
 
-    // use value of search field to filter
-    var $quicksearch = $('.quicksearch').keyup(debounce(function () {
-      qsRegex = new RegExp($quicksearch.val(), 'gi');
-      $grid.isotope();
-    }));
 
-    // change is-checked class on buttons
-    $('.button-group').each(function (i, buttonGroup) {
-      var $buttonGroup = $(buttonGroup);
-      $buttonGroup.on('click', 'button', function () {
-        $buttonGroup.find('.is-checked').removeClass('is-checked');
-        $(this).addClass('is-checked');
-      });
-    });
+        },
+        leave() {
+          // create your stunning leave animation here
 
-    // flatten object by concatting values
-    function concatValues(obj) {
-      var value = '';
-      for (var prop in obj) {
-        value += obj[prop];
-      }
-      return value;
-    }
 
-    // debounce so filtering doesn't happen every millisecond
-    function debounce(fn, threshold) {
-      var timeout;
-      threshold = threshold || 100;
-      return function debounced() {
-        clearTimeout(timeout);
-        var args = arguments;
-        var _this = this;
-        function delayed() {
-          fn.apply(_this, args);
+          let barbaTl = gsap.timeline()
+          .to('#reveal', { opacity: 1, duration: 0.5 })
+          .to('#global-spinner', { opacity: 1, duration: 0.5 }, "<0.3")
+
+          return barbaTl;
+
+          // .to('.text-emphasis', {autoAlpha: 1, duration: 0 })
+          // .to('#left-swipe', { top: '50vh', duration: 0 })
+          // .to('#right-swipe', { top: '50vh', duration: 0 })
+
+          return barbaTl;
+
+        },
+        beforeLeave(data) {
+          console.log("destroy loco")
+
+          tl.pause(0).kill(true);
+          ScrollTrigger.getById("home1").kill(true);
+          ScrollTrigger.getById("home2").kill(true);
+          ScrollTrigger.getById("footer1").kill(true);
+
+          gsap.set(".layout--home #wrapper", { clearProps: true });
+          gsap.set(".page--cars #wrapper", { clearProps: true });
+
+          ScrollTrigger.refresh()
+
         }
-        timeout = setTimeout(delayed, threshold);
-      };
+      }]
+    });
+
+
+    function initScroll(container = document) {
+      console.log("scrollllllll bitch")
+
+      tl = null;
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      tl = gsap.timeline()
+
+
+        .fromTo('.layout--home #wrapper',
+          { "background-color": "#666666" },
+          {
+            "background-color": "#ffffff",
+            scrollTrigger: {
+              id: "home1",
+              pin: false,
+              trigger: ".layout--home .page__footer",
+              start: "top 100%",
+              end: "top 30%",
+              scrub: true,
+              markers: { startColor: "green", endColor: "green", fontSize: "12px" }
+
+            },
+            ease: "none"
+          })
+
+        .fromTo('.layout--home #wrapper',
+          { "background-color": "#272727" },
+          {
+            "background-color": "#666666",
+            scrollTrigger: {
+              id: "home2",
+              pin: false,
+              trigger: ".layout--home .about",
+              start: "top 100%",
+              end: "top 0%",
+              scrub: true,
+              markers: { startColor: "red", endColor: "red", fontSize: "12px" }
+            },
+            ease: "none"
+          })
+
+        .fromTo('.page--cars #wrapper',
+          { "background-color": "#272727" },
+          {
+            "background-color": "#ffffff",
+            scrollTrigger: {
+              id: "footer1",
+              pin: false,
+              trigger: ".page--cars .page__footer",
+              start: "top 100%",
+              end: "top 30%",
+              scrub: true,
+              markers: { startColor: "green", endColor: "red", fontSize: "12px" }
+
+            },
+            ease: "none"
+          });
+
+
+      console.log("end")
     }
 
-  }
 
-});
+    filterInit();
+
+    function filterInit() {
+
+      
+      $('.search').click((e) => {
+        e.preventDefault()
+        let target = document.querySelector('.section-padding');
+        locoScroll.scrollTo(target)
+      })
+
+      // external js: isotope.pkgd.js
+
+      // store filter for each group
+      var buttonFilters = {};
+      var buttonFilter;
+      // quick search regex
+      var qsRegex;
+
+      // init Isotope
+      var $grid = $('.grid').isotope({
+        itemSelector: '.cars',
+        filter: function () {
+          var $this = $(this);
+          var searchResult = qsRegex ? $this.text().match(qsRegex) : true;
+          var buttonResult = buttonFilter ? $this.is(buttonFilter) : true;
+          return searchResult && buttonResult;
+        },
+      });
+
+      $('.filters').on('click', 'a', function (e) {
+
+        e.preventDefault()
+        var $this = $(this);
+        // get group key
+        var $buttonGroup = $this.parents('.button-group');
+        var filterGroup = $buttonGroup.attr('data-filter-group');
+        // set filter for group
+        buttonFilters[filterGroup] = $this.attr('data-filter');
+        // combine filters
+        buttonFilter = concatValues(buttonFilters);
+        // Isotope arrange
+        $grid.isotope();
+      });
+
+      // use value of search field to filter
+      var $quicksearch = $('.quicksearch').keyup(debounce(function () {
+        qsRegex = new RegExp($quicksearch.val(), 'gi');
+        $grid.isotope();
+      }));
+
+      // change is-checked class on buttons
+      $('.button-group').each(function (i, buttonGroup) {
+        var $buttonGroup = $(buttonGroup);
+        $buttonGroup.on('click', 'button', function () {
+          $buttonGroup.find('.is-checked').removeClass('is-checked');
+          $(this).addClass('is-checked');
+        });
+      });
+
+      // flatten object by concatting values
+      function concatValues(obj) {
+        var value = '';
+        for (var prop in obj) {
+          value += obj[prop];
+        }
+        return value;
+      }
+
+      // debounce so filtering doesn't happen every millisecond
+      function debounce(fn, threshold) {
+        var timeout;
+        threshold = threshold || 100;
+        return function debounced() {
+          clearTimeout(timeout);
+          var args = arguments;
+          var _this = this;
+          function delayed() {
+            fn.apply(_this, args);
+          }
+          timeout = setTimeout(delayed, threshold);
+        };
+      }
+
+    }
+
+
+  });
 
 </script>
 

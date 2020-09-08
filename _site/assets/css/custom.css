@@ -27,15 +27,19 @@
   float: left;
 }
 
-#wrapper {
+/* #wrapper {
   width: 100vw;
-  /* height: 100vh; */
-  /* overflow: hidden;  */
-  /* position: fixed !important;  */
+  height: 100vh;
+  overflow: hidden; 
+  position: fixed !important; 
 }
 
 body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+} */
+
+.bg-dark {
+  background-color: #272727 !important;
 }
