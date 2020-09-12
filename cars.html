@@ -52,7 +52,7 @@ slug: cars
             {% assign brands = site.cars | group_by:"brand" %}
               <li class="button-group" data-filter-group="brand"><a href="#"  data-filter="*"><i class="mdi mdi-chevron-right"></i> All <span class="sidebar-badge">{{site.cars | size}}</span></a></li>
               {% for brand in brands %}
-              <li class="button-group" data-filter-group="brand"><a href="#"  data-filter="{{ brand.name }}"><i class="mdi mdi-chevron-right"></i> {{ brand.name }} <span class="sidebar-badge">{{brand.items | size}}</span></a></li>
+              <li class="button-group" data-filter-group="brand"><a href="#"  data-filter=".{{ brand.name }}"><i class="mdi mdi-chevron-right"></i> {{ brand.name }} <span class="sidebar-badge">{{brand.items | size}}</span></a></li>
               {% endfor %}
             </ul>
           </div>
@@ -108,8 +108,8 @@ slug: cars
           {% for car in site.cars %}
           {% assign img = "assets/img/cars/" | append: car.imgUrl %}
           <div class="">
-            <div class="card card-list cars mx-2" style="">
-              <a href="/cars/{{car.model}}">
+            <div class="card card-list cars mx-2 {{ car.brand }}" style="">
+              <a href="/cars/{{car.model}}" class="">
                 <div class="card-img">
                   <div class="love-badge text-danger"><i class="mdi mdi-heart"></i></div>
                   <!-- <div class="badge images-badge"><i class="mdi mdi-image-filter"></i> 12</div> -->
