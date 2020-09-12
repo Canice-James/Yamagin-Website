@@ -61,6 +61,8 @@
             
             gsap.to('#reveal', { opacity: 0, duration: 0.5 })
             gsap.to('#global-spinner', { opacity: 0, duration: 0.5 })
+
+            filterInit();
           },300)
 
 
@@ -143,14 +145,14 @@
           ease: "none"
         })
 
-      .fromTo('.page--cars #wrapper',
+      .fromTo(':not(.layout--home) > #wrapper',
         { "background-color": "#272727" },
         {
             "background-color": "#ffffff",
             scrollTrigger: {
               id: "footer1",
               pin: false,
-              trigger: ".page--cars .page__footer",
+              trigger: ":not(.layout--home) > .page__footer",
               start: "top 100%",
               end: "top 30%",
               scrub: true,
