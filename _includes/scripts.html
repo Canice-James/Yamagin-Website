@@ -16,6 +16,8 @@
   integrity="sha512-wK2NuxEyN/6s53M8G7c6cRUXvkeV8Uh5duYS06pAdLq4ukc72errSIyyGQGYtzWEzvVGzGSWg8l79e0VkTJYPw=="
   crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@barba/core"></script>
+<script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+
 
 <!-- Custom -->
 <script src="{{'assets/js/custom.js' | relative_url}}"></script>
@@ -108,42 +110,42 @@
       tl = gsap.timeline()
 
 
-        .fromTo('.layout--home #wrapper',
-          { "background-color": "#666666" },
-          {
-            "background-color": "#ffffff",
-            scrollTrigger: {
-              id: "home1",
-              pin: false,
-              trigger: ".layout--home .page__footer",
-              start: "top 100%",
-              end: "top 30%",
-              scrub: true,
-              markers: { startColor: "green", endColor: "green", fontSize: "12px" }
+      .fromTo('.layout--home #wrapper',
+        { "background-color": "#666666" },
+        {
+          "background-color": "#ffffff",
+          scrollTrigger: {
+            id: "home1",
+            pin: false,
+            trigger: ".layout--home .page__footer",
+            start: "top 100%",
+            end: "top 30%",
+            scrub: true,
+            markers: { startColor: "green", endColor: "green", fontSize: "12px" }
 
-            },
-            ease: "none"
-          })
+          },
+          ease: "none"
+        })
 
-        .fromTo('.layout--home #wrapper',
-          { "background-color": "#272727" },
-          {
-            "background-color": "#666666",
-            scrollTrigger: {
-              id: "home2",
-              pin: false,
-              trigger: ".layout--home .about",
-              start: "top 100%",
-              end: "top 0%",
-              scrub: true,
-              markers: { startColor: "red", endColor: "red", fontSize: "12px" }
-            },
-            ease: "none"
-          })
+      .fromTo('.layout--home #wrapper',
+        { "background-color": "#272727" },
+        {
+          "background-color": "#666666",
+          scrollTrigger: {
+            id: "home2",
+            pin: false,
+            trigger: ".layout--home .about",
+            start: "top 100%",
+            end: "top 0%",
+            scrub: true,
+            markers: { startColor: "red", endColor: "red", fontSize: "12px" }
+          },
+          ease: "none"
+        })
 
-        .fromTo('.page--cars #wrapper',
-          { "background-color": "#272727" },
-          {
+      .fromTo('.page--cars #wrapper',
+        { "background-color": "#272727" },
+        {
             "background-color": "#ffffff",
             scrollTrigger: {
               id: "footer1",
@@ -158,8 +160,13 @@
             ease: "none"
           });
 
+      $('.search').click(function(e){
+        e.preventDefault()
+        $('body').scrollTo('.cars', {duration: 450});
+      })
 
       console.log("end")
+
     }
 
 
@@ -168,11 +175,11 @@
     function filterInit() {
 
       
-      $('.search').click((e) => {
-        e.preventDefault()
-        let target = document.querySelector('.section-padding');
-        locoScroll.scrollTo(target)
-      })
+      // $('.search').click((e) => {
+      //   e.preventDefault()
+      //   let target = document.querySelector('.section-padding');
+      //   locoScroll.scrollTo(target)
+      // })
 
       // external js: isotope.pkgd.js
 
