@@ -1,1 +1,0 @@
-# Yamagin Website
