@@ -18,15 +18,13 @@ title: Contact Us
          <h2 class="mt-1 mb-5">Get In Touch</h2>
       </div>
       <h6 class="text-danger"><i class="mdi mdi-home-map-marker"></i> Address :</h6>
-      <p>86 Petersham town, New South wales Waedll Steet, Australia PA 6550</p>
+      <p>{{ site.address }}</p>
       <h6 class="text-danger"><i class="mdi mdi-phone"></i> Phone :</h6>
-      <p>+91 12345-67890, (+91) 123 456 7890</p>
-      <h6 class="text-danger"><i class="mdi mdi-deskphone"></i> Mobile :</h6>
-      <p>(+20) 220 145 6589, +91 12345-67890</p>
+      <p>{{ site.phone }}{% if site.phone-alt %}/{% endif %} {{ site.phone-alt}}</p>
       <h6 class="text-danger"><i class="mdi mdi-email"></i> Email :</h6>
-      <p>iamosahan@gmail.com, info@gmail.com</p>
+      <p>{{ site.email }}</p>
       <h6 class="text-danger"><i class="mdi mdi-link"></i> Website :</h6>
-      <p>www.askbootstrap.com</p>
+      <p>{{ site.url }}</p>
    </div>
    <form class="col-lg-8 col-md-8" name="sentMessage" id="contactForm" novalidate>
       <div class="section-title">
