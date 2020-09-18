@@ -41,11 +41,9 @@
 
           // init LocomotiveScroll on page load
           initScroll(data.next.container);
+          gsapAnimate()
+        
           
-          let barbaTl = gsap.timeline()
-          .to('#reveal', { opacity: 0, duration: 0.5 })
-          .to('#global-spinner', { opacity: 0, duration: 0.5 },"<0.3")
-
           return barbaTl;
           
         },
@@ -58,9 +56,7 @@
           // tl.to('.text-emphasis', {autoAlpha: 1, duration: 0,  onComplete: function () {
           setTimeout(()=>{
             initScroll(data.next.container)
-            
-            gsap.to('#reveal', { opacity: 0, duration: 0.5 })
-            gsap.to('#global-spinner', { opacity: 0, duration: 0.5 })
+            gsapAnimate()
 
             filterInit();
           },300)
@@ -100,6 +96,25 @@
         }
       }]
     });
+
+    function gsapAnimate(){
+      let barbaTl = gsap.timeline()
+          .to('#reveal', { opacity: 0, duration: 0.5 })
+          .to('#global-spinner', { opacity: 0, duration: 0.5 },"<0.3")
+          .from(".navbar-brand", { x:-40,  opacity:0, duration: 1.5}, "-0")
+          .from(".layout--single-page .osahan-slider", {height: "50vh", padding:0, duration: 0.5},"-0")
+          .from(".page-content", {y:100, opacity:0, duration: 0.8}, "+0.2") 
+          .from(".carousel-item h1", { y:40,  opacity:0, duration: 0.25}, "<0.0")
+          .from(".carousel-item .card", { x:60,  opacity:0, duration: 1}, "<0")
+          .from(".carousel-item h6", { y:20,  opacity:0, duration: 0.45},)
+
+          .from(".carousel-item .btn", { x:40,  opacity:0, stagger:0.5, duration: 1})
+
+
+
+          .from(".nav-item", { x:40,  opacity:0, stagger: 0.20, duration: 0.15}, "0.5")
+
+    }
 
 
     function initScroll(container = document) {
