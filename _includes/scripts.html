@@ -81,7 +81,7 @@
 
         },
         beforeLeave(data) {
-          console.log("destroy loco")
+          //console.log("destroy loco")
 
           tl.pause(0).kill(true);
           ScrollTrigger.getById("home1").kill(true);
@@ -118,7 +118,6 @@
 
 
     function initScroll(container = document) {
-      console.log("scrollllllll bitch")
 
       tl = null;
 
@@ -182,7 +181,7 @@
         $('body').scrollTo('.side-cars', {duration: 450});
       })
 
-      console.log("end")
+      //console.log("end")
 
     }
 
